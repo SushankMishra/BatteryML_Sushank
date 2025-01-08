@@ -23,18 +23,15 @@ class Task:
                  feature_transformation: BaseDataTransformation = None,
                  label_transformation: BaseDataTransformation = None):
         if isinstance(train_test_splitter, dict):
-            train_test_splitter = \
-                TRAIN_TEST_SPLITTERS.build(train_test_splitter, 'raise')
+            train_test_splitter = TRAIN_TEST_SPLITTERS.build(train_test_splitter, 'raise')
         if isinstance(feature_extractor, dict):
             feature_extractor = FEATURE_EXTRACTORS.build(feature_extractor)
         if isinstance(label_annotator, dict):
             label_annotator = LABEL_ANNOTATORS.build(label_annotator)
         if isinstance(feature_transformation, dict):
-            feature_transformation = DATA_TRANSFORMATIONS.build(
-                feature_transformation)
+            feature_transformation = DATA_TRANSFORMATIONS.build(feature_transformation)
         if isinstance(label_transformation, dict):
-            label_transformation = DATA_TRANSFORMATIONS.build(
-                label_transformation)
+            label_transformation = DATA_TRANSFORMATIONS.build(label_transformation)
 
         self.train_test_splitter = train_test_splitter
         self.feature_extractor = feature_extractor
