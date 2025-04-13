@@ -35,7 +35,7 @@ class Pipeline:
               skip_if_executed: bool = True,
               dataset: DataBundle | None = None):
         set_seed(seed)
-
+ 
         if skip_if_executed and (
             self.config['workspace'] is not None
             and any(Path(self.config['workspace'])

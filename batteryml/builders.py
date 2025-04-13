@@ -2,7 +2,7 @@
 # Copyright (c) Microsoft Corporation.
 
 from batteryml.utils.registry import Registry
-
+ 
 MODELS = Registry('Models')
 PREPROCESSORS = Registry('Preprocessors')
 LABEL_ANNOTATORS = Registry('Label Annotators')

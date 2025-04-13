@@ -11,7 +11,7 @@ def plot_capacity_degradation(battery_data,
                               ylim=None):
     plt.figure(figsize=figsize)
 
-    colors = plt.cm.jet(np.linspace(0, 1, len(battery_data)))
+    colors = plt.cm.magma(np.linspace(0, 1, len(battery_data)))
 
     for color, cell_data in zip(colors, battery_data):
         tag = cell_data.cell_id
@@ -74,7 +74,7 @@ def plot_cycle_attribute(cycle_infos,
         plt.plot(x, y)
         xlabel = 'cycle'
     else:
-        colors = plt.cm.jet(np.linspace(0, 1, length))
+        colors = plt.cm.magma(np.linspace(0, 1, length))
 
         for color, cycle_info in zip(colors, cycle_infos):
 
@@ -100,8 +100,8 @@ def plot_result(ground_truth_y, y_pred):
     # normalized_y = (y - y.min()) / (y.max() - y.min()) 
     norm = plt.Normalize(ground_truth_y.min(), ground_truth_y.max())
 
-    cmap = plt.get_cmap('viridis')
-    plt.scatter(ground_truth_y, y_pred, c=ground_truth_y, cmap='viridis', norm=norm)
+    cmap = plt.get_cmap('turbo')
+    plt.scatter(ground_truth_y, y_pred, c=ground_truth_y, cmap='turbo', norm=norm)
     cbar = plt.colorbar()
     # cbar.ax.set_title(r'$Q_n$'+' (Ah)', fontsize=7)
     # cbar.ax.invert_yaxis()
@@ -110,7 +110,10 @@ def plot_result(ground_truth_y, y_pred):
     # Generate data points for the 45-degree line
     x_line = np.linspace(ground_truth_y.min(), ground_truth_y.max(), 100)  
     y_line = x_line
-
+    print("Debug Ground Truth")
+    print(ground_truth_y,"\n")
+    print("Debug Prediction")
+    print(y_pred)
 
     # Add the 45-degree line to the plot
     plt.plot(x_line, y_line,  color='grey')  # Customize line style and color as needed
